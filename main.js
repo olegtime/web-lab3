@@ -16,13 +16,21 @@ let svgInitData = document.getElementById("graphSVG").innerHTML;
 let svgLastData = document.getElementById("graphSVG").innerHTML;
 
 let dataTableDiv = document.getElementById('results-div')
-let mouseOnTable = false
 
 let clearDiv = document.getElementById('clearDiv')
 let isClearing = false
 
-let clickedRow = undefined;
 
+
+increaseButton_R.addEventListener('click', () => {
+    let xValues = getXValues()
+    safePreDraw(xValues, input_Y.value, input_R.value)
+});
+
+decreaseButton_R.addEventListener('click', () => {
+    let xValues = getXValues()
+    safePreDraw(xValues, input_Y.value, input_R.value)
+});
 
 input_Y.addEventListener("input", function() {
     let xValues = getXValues()
@@ -30,6 +38,11 @@ input_Y.addEventListener("input", function() {
 });
 
 input_X.addEventListener("click", function() {
+    let xValues = getXValues()
+    safePreDraw(xValues, input_Y.value, input_R.value)
+});
+
+input_R.addEventListener("change", function() {
     let xValues = getXValues()
     safePreDraw(xValues, input_Y.value, input_R.value)
 });
@@ -78,14 +91,3 @@ clearDiv.addEventListener('click', function () {
     clearDiv.style.display = 'none'
     dataTableDiv.style.padding = '20px'
 })
-
-function clearSelection() {
-    for (let i of document.getElementsByClassName('clickable-row')) {
-        i.style.backgroundColor = '#f9f9f9'
-    }
-
-    svg.innerHTML = svgLastData
-    mouseOnTable = false
-
-    clickedRow = undefined
-}

@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: niik
-  Date: 31.10.2023
-  Time: 15:07
--->
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -24,169 +18,122 @@
 
     <ui:include src="header.html" />
 
-    <div class="top-div">
-
-        <div class="graph-div" id="graph-svg">
-            <ui:include src="graph.svg"/>
-        </div>
-
-        <div class="form-div">
-            <h:form id="hitInfo">
-                <label for="choiceX">X:</label>
-                <div id="choiceX">
-                    <label class="boolCheckX">
-                        -4
-                        <h:selectBooleanCheckbox id="x-4" value="#{userRequest.neg4}">
-                            <f:selectItem itemValue="true" itemLabel="-4"/>
-                            <f:selectItem itemValue="false"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        -3
-                        <h:selectBooleanCheckbox id="x-3" value="#{userRequest.neg3}">
-                            <f:selectItem itemValue="true" itemLabel="-3"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        -2
-                        <h:selectBooleanCheckbox id="x-2" value="#{userRequest.neg2}">
-                            <f:selectItem itemValue="true" itemLabel="-2"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        -1
-                        <h:selectBooleanCheckbox id="x-1" value="#{userRequest.neg1}">
-                            <f:selectItem itemValue="true" itemLabel="-1"/>
-                            <f:selectItem itemValue="false"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        0
-                        <h:selectBooleanCheckbox id="x0" value="#{userRequest.zero}">
-                            <f:selectItem itemValue="true" itemLabel="0"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        1
-                        <h:selectBooleanCheckbox id="x1" value="#{userRequest.pos1}">
-                            <f:selectItem itemValue="true" itemLabel="1"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        2
-                        <h:selectBooleanCheckbox id="x2" value="#{userRequest.pos2}">
-                            <f:selectItem itemValue="true" itemLabel="2"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        3
-                        <h:selectBooleanCheckbox id="x3" value="#{userRequest.pos3}">
-                            <f:selectItem itemValue="true" itemLabel="3"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                    <label class="boolCheckX">
-                        4
-                        <h:selectBooleanCheckbox id="x4" value="#{userRequest.pos4}">
-                            <f:selectItem itemValue="true" itemLabel="4"/>
-                        </h:selectBooleanCheckbox>
-                    </label>
-
-                </div>
-
-                <label for="y-value">Y: </label>
-                <h:inputText id="y-value"
-                             autocomplete="off"
-                             required="true"
-                             thousandSeparator="false"
-                             minValue="-3"
-                             maxValue="3"
-                             decimalSeparator="."
-                             decimalPlaces="3"
-                             converterMessage="Введите число от -3 до 3"
-                             value="#{userRequest.y}"
-                />
-
-                <label for="r-value">R:</label>
-                <p:spinner id="r-value"
-                           value="${userRequest.r}"
-                           min="0.1"
-                           max="4"
-                           stepFactor="0.1"
-                           decimalSeparator="."
-                />
-
-<!--                <div class="spinner-container">-->
-<!--                    <h:inputText id="r-value" value="${userRequest.r}" />-->
-
-<!--                    <h:outputScript>-->
-<!--                        function updateSpinner(step) {-->
-<!--                            var input = document.getElementById('hitInfo:r-value');-->
-<!--                            var currentValue = parseFloat(input.value);-->
-<!--                            var newValue = currentValue + step;-->
-<!--                            input.value = newValue.toFixed(1);-->
-<!--                        }-->
-<!--                    </h:outputScript>-->
-
-<!--                    <div>-->
-<!--                        <button type="button" class="spinner-button" onclick="updateSpinner(0.1)">+</button>-->
-<!--                        <button type="button" class="spinner-button" onclick="updateSpinner(-0.1)">-</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-
-                <h:commandButton id="tryHit" value="Submit" action="#{resultManager.addResults(userRequest)}">
-                    <f:ajax execute="@form" render="results-table"/>
-<!--                    <f:ajax execute="#{svgBean.updateSVG(resultManager.results.get(0))}" render="graph-svg"/>-->
-                </h:commandButton>
-
-            </h:form>
-        </div>
-
-        <h:form id="hitInfoHidden" style="display: none;">
-            <h:inputHidden id="x-value-hidden" value="${userRequest.x}"/>
-
-            <h:inputHidden id="y-value-hidden" value="${userRequest.y}"/>
-
-            <h:inputHidden id="r-value-hidden" value="${userRequest.r}"/>
-
-            <h:commandButton id="tryHitHidden" value="Submit" action="#{resultManager.addResultFromGraph(userRequest)}">
-                <f:ajax execute="@form" render="results-table"/>
-            </h:commandButton>
-        </h:form>
-
+    <div class="graph-div" id="graph-svg">
+        <ui:include src="graph.svg"/>
     </div>
 
-    <div>
-        <h:form id="chooseSorting">
-            <div>
-                <h:selectOneMenu id="field" value="#{sortingHandler.field}">
-                    <f:selectItem itemValue="x" itemLabel="X"/>
-                    <f:selectItem itemValue="y" itemLabel="Y"/>
-                    <f:selectItem itemValue="r" itemLabel="R"/>
-                </h:selectOneMenu>
+    <div class="form-div">
+        <h:form id="hitInfo">
+            <label for="choiceX">X: </label>
+            <div id="choiceX">
+                <label class="boolCheckX">
+                    -4
+                    <h:selectBooleanCheckbox id="x-4" value="#{userRequest.neg4}">
+                        <f:selectItem itemValue="true" itemLabel="-4"/>
+                        <f:selectItem itemValue="false"/>
+                    </h:selectBooleanCheckbox>
+                </label>
 
-                <h:selectOneMenu id="operator" value="#{sortingHandler.operator}">
-                    <f:selectItem itemValue="less" itemLabel="less"/>
-                    <f:selectItem itemValue="greater" itemLabel="greater"/>
-                    <f:selectItem itemValue="equal" itemLabel="equal"/>
-                </h:selectOneMenu>
+                <label class="boolCheckX">
+                    -3
+                    <h:selectBooleanCheckbox id="x-3" value="#{userRequest.neg3}">
+                        <f:selectItem itemValue="true" itemLabel="-3"/>
+                    </h:selectBooleanCheckbox>
+                </label>
 
-                <h:inputText id="value" value="${sortingHandler.value}"/>
+                <label class="boolCheckX">
+                    -2
+                    <h:selectBooleanCheckbox id="x-2" value="#{userRequest.neg2}">
+                        <f:selectItem itemValue="true" itemLabel="-2"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    -1
+                    <h:selectBooleanCheckbox id="x-1" value="#{userRequest.neg1}">
+                        <f:selectItem itemValue="true" itemLabel="-1"/>
+                        <f:selectItem itemValue="false"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    0
+                    <h:selectBooleanCheckbox id="x0" value="#{userRequest.zero}">
+                        <f:selectItem itemValue="true" itemLabel="0"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    1
+                    <h:selectBooleanCheckbox id="x1" value="#{userRequest.pos1}">
+                        <f:selectItem itemValue="true" itemLabel="1"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    2
+                    <h:selectBooleanCheckbox id="x2" value="#{userRequest.pos2}">
+                        <f:selectItem itemValue="true" itemLabel="2"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    3
+                    <h:selectBooleanCheckbox id="x3" value="#{userRequest.pos3}">
+                        <f:selectItem itemValue="true" itemLabel="3"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
+                <label class="boolCheckX">
+                    4
+                    <h:selectBooleanCheckbox id="x4" value="#{userRequest.pos4}">
+                        <f:selectItem itemValue="true" itemLabel="4"/>
+                    </h:selectBooleanCheckbox>
+                </label>
+
             </div>
 
-            <h:commandButton id="send" value="Submit" action="#{resultManager.updateResultsWithSorting(sortingHandler.field, sortingHandler.operator, sortingHandler.value)}">
+            <label for="y-value">Y: </label>
+            <h:inputText id="y-value"
+                         autocomplete="off"
+                         required="true"
+                         thousandSeparator="false"
+                         minValue="-5"
+                         maxValue="3"
+                         decimalSeparator="."
+                         decimalPlaces="3"
+                         converterMessage="Введите число от -3 до 3"
+                         value="#{userRequest.y}"
+            />
+
+            <label for="r-value">R: </label>
+            <p:spinner id="r-value"
+                       value="${userRequest.r}"
+                       min="0.1"
+                       max="4"
+                       stepFactor="0.1"
+                       decimalSeparator="."
+            />
+
+            <h:commandButton id="tryHit" value="Отправить" action="#{resultManager.addResults(userRequest)}">
                 <f:ajax execute="@form" render="results-table"/>
             </h:commandButton>
+
         </h:form>
     </div>
+
+    <h:form id="hitInfoHidden" style="display: none;">
+        <h:inputHidden id="x-value-hidden" value="${userRequest.x}"/>
+
+        <h:inputHidden id="y-value-hidden" value="${userRequest.y}"/>
+
+        <h:inputHidden id="r-value-hidden" value="${userRequest.r}"/>
+
+        <h:commandButton id="tryHitHidden" value="Отправить" action="#{resultManager.addResultFromGraph(userRequest)}">
+            <f:ajax execute="@form" render="results-table"/>
+        </h:commandButton>
+    </h:form>
+
 
     <div id="results-div">
         <h:panelGroup>
@@ -212,17 +159,17 @@
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Status</f:facet>
-                    #{result.status}
+                    <f:facet name="header">Попадание</f:facet>
+                    #{result.status ? "Да" : "Нет"}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Request time</f:facet>
+                    <f:facet name="header">Время запроса</f:facet>
                     #{result.requestTime}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Script time</f:facet>
+                    <f:facet name="header">Время выполнения</f:facet>
                     #{result.scriptTime} ns
                 </h:column>
 

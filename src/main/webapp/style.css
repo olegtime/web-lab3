@@ -1,0 +1,108 @@
+body, h1, h2, p, div, form, label, span, input, button, table {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    height: 8vh;
+}
+
+.header span {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.clock {
+    font-family: 'Digital-7', sans-serif;
+    font-size: 3rem;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#toMainDiv {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#toMainButton {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.graph-div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-div {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boolCheckX {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+label, input, button {
+    font-size: 1.2rem;
+}
+
+#results-div {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#clearDiv {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+}

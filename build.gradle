@@ -14,10 +14,7 @@ ext {
     junitVersion = '5.9.2'
 }
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
-
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
@@ -28,8 +25,12 @@ dependencies {
     implementation('org.glassfish.jaxb:jaxb-runtime:3.0.2')
     implementation('org.hibernate.validator:hibernate-validator:7.0.5.Final')
 
+    implementation('org.postgresql:postgresql:42.6.0')
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    implementation('org.primefaces:primefaces:13.0.0:jakarta')
 }
 
 test {

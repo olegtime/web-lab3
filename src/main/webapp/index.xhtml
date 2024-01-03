@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </h:head>
 
-<h:body style="background-color: #333">
+<h:body>
     <ui:include src="header.html" />
 
     <main>
@@ -34,7 +34,7 @@
         document.getElementById("clockText").textContent = hours + ":" + (minutes &lt; 10 ? "0" : "") + minutes + ":" + (seconds &lt; 10 ? "0" : "") + seconds;
     }
 
-    setInterval(updateClock, 7000);
+    setInterval(updateClock, 11000);
     updateClock();
 </script>
 
