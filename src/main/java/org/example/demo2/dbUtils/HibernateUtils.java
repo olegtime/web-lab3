@@ -13,8 +13,8 @@ public class HibernateUtils {
         try {
             Configuration configuration = new Configuration();
             configuration.configure();
-            configuration.setProperty(AvailableSettings.USER, "s367561");
-            configuration.setProperty(AvailableSettings.PASS, "AYPlcuuadj62xsmk");
+            configuration.setProperty(AvailableSettings.USER, "");
+            configuration.setProperty(AvailableSettings.PASS, "");
             configuration.addAnnotatedClass(AreaCheckerBean.class);
             factory = configuration
                     .buildSessionFactory();
