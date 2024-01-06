@@ -1,13 +1,13 @@
 import {drawPreview, drawNewPoint, safePreDraw, safeNewDraw} from "./src/main/webapp/script/drawer";
 import {getXValues} from "./src/main/webapp/script/utils";
 
-let input_R = document.getElementById('hitInfo:r-value_input')
-let increaseButton_R = document.getElementById('hitInfo:r-value-increase')
-let decreaseButton_R = document.getElementById('hitInfo:r-value-decrease')
+let inputR = document.getElementById('hitInfo:r-value_input')
+let increaseButtonR = document.getElementById('hitInfo:r-value-increase')
+let decreaseButtonR = document.getElementById('hitInfo:r-value-decrease')
 
-let input_Y = document.getElementById('hitInfo:y-value')
+let inputY = document.getElementById('hitInfo:y-value')
 
-let input_X = document.getElementById('choiceX')
+let inputX = document.getElementById('choiceX')
 
 let submitButton = document.getElementById('hitInfo:tryHit')
 
@@ -22,29 +22,29 @@ let isClearing = false
 
 
 
-increaseButton_R.addEventListener('click', () => {
+increaseButtonR.addEventListener('click', () => {
     let xValues = getXValues()
-    safePreDraw(xValues, input_Y.value, input_R.value)
+    safePreDraw(xValues, inputY.value, inputR.value)
 });
 
-decreaseButton_R.addEventListener('click', () => {
+decreaseButtonR.addEventListener('click', () => {
     let xValues = getXValues()
-    safePreDraw(xValues, input_Y.value, input_R.value)
+    safePreDraw(xValues, inputY.value, inputR.value)
 });
 
-input_Y.addEventListener("input", function() {
+inputY.addEventListener("input", function() {
     let xValues = getXValues()
-    safePreDraw(xValues, input_Y.value, input_R.value)
+    safePreDraw(xValues, inputY.value, inputR.value)
 });
 
-input_X.addEventListener("click", function() {
+inputX.addEventListener("click", function() {
     let xValues = getXValues()
-    safePreDraw(xValues, input_Y.value, input_R.value)
+    safePreDraw(xValues, inputY.value, inputR.value)
 });
 
-input_R.addEventListener("change", function() {
+inputR.addEventListener("change", function() {
     let xValues = getXValues()
-    safePreDraw(xValues, input_Y.value, input_R.value)
+    safePreDraw(xValues, inputY.value, inputR.value)
 });
 
 svg.addEventListener('click', function (event) {
@@ -54,7 +54,7 @@ svg.addEventListener('click', function (event) {
     let hiddenY = document.getElementById('hitInfoHidden:y-value-hidden')
     let hiddenR = document.getElementById('hitInfoHidden:r-value-hidden')
 
-    let r = input_R.value
+    let r = inputR.value
     let x = (event.offsetX - 200) / (100 / r)
     let y = (event.offsetY - 200) / (-100 / r)
 
@@ -75,7 +75,7 @@ svg.addEventListener('click', function (event) {
 
 submitButton.addEventListener('click', () => {
     let xValues = getXValues()
-    safeNewDraw(xValues, input_Y.value, input_R.value)
+    safeNewDraw(xValues, inputY.value, inputR.value)
     svgLastData = svg.innerHTML
 
     clearDiv.style.display = 'block'
