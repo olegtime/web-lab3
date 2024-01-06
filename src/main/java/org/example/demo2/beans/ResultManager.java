@@ -44,32 +44,35 @@ public class ResultManager {
 
         ArrayList<Hit> hits = new ArrayList<>();
 
+        double y = userRequest.getY();
+        double r = userRequest.getR();
+
         if (userRequest.isNeg1()) {
-            hits.add(new Hit(-1, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(-1, y, r));
         }
         if (userRequest.isNeg2()) {
-            hits.add(new Hit(-2, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(-2, y, r));
         }
         if (userRequest.isNeg3()) {
-            hits.add(new Hit(-3, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(-3, y, r));
         }
         if (userRequest.isNeg4()) {
-            hits.add(new Hit(-4, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(-4, y, r));
         }
         if (userRequest.isZero()) {
-            hits.add(new Hit(0, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(0, y, r));
         }
         if (userRequest.isPos1()) {
-            hits.add(new Hit(1, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(1, y, r));
         }
         if (userRequest.isPos2()) {
-            hits.add(new Hit(2, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(2, y, r));
         }
         if (userRequest.isPos3()) {
-            hits.add(new Hit(3, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(3, y, r));
         }
         if (userRequest.isPos4()) {
-            hits.add(new Hit(4, userRequest.getY(), userRequest.getR()));
+            hits.add(new Hit(4, y, r));
         }
 
         for (Hit hit : hits) {
